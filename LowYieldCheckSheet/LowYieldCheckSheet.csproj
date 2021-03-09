@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86848A93-6938-4F78-B0F8-3C46653EEB62}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LowYieldCheckSheet</RootNamespace>
+    <AssemblyName>LowYieldCheckSheet</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="iLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\iLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Default_Test.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HistoryAdvancePage.aspx" />
+    <Content Include="HistoryDailyPage.aspx" />
+    <Content Include="HistoryDataSheet.aspx" />
+    <Content Include="Images\Cancel.png" />
+    <Content Include="Images\CheckSheet.png" />
+    <Content Include="Images\Complete.png" />
+    <Content Include="Images\Confirm.png" />
+    <Content Include="Images\FlowChart20180216.png" />
+    <Content Include="Images\FQI.png" />
+    <Content Include="Images\FYI.png" />
+    <Content Include="Images\header2.jpg" />
+    <Content Include="Images\MLGL1.png" />
+    <Content Include="Images\MLGL2.png" />
+    <Content Include="Images\MLOP1.png" />
+    <Content Include="Images\MLOP2.png" />
+    <Content Include="Images\MoveLot.jpg" />
+    <Content Include="Images\NEW_100px.gif" />
+    <Content Include="Images\Option.png" />
+    <Content Include="Images\QAApp.png" />
+    <Content Include="Images\QCIn.png" />
+    <Content Include="Images\Report1.jpg" />
+    <Content Include="Images\RohmLogo1.jpg" />
+    <Content Include="Images\tick.png" />
+    <Content Include="Images\user1.png" />
+    <Content Include="Images\user2.png" />
+    <Content Include="Images\user3.png" />
+    <Content Include="Images\user4.png" />
+    <Content Include="Images\user5.png" />
+    <Content Include="Images\user5A.png" />
+    <Content Include="Images\user5B.png" />
+    <Content Include="Images\user6.png" />
+    <Content Include="Images\user7.png" />
+    <Content Include="Images\user8.png" />
+    <Content Include="Images\user9.png" />
+    <Content Include="Images\ViewSheet.png" />
+    <Content Include="Images\WhiteSpace.png" />
+    <Content Include="InputPageUser1.aspx" />
+    <Content Include="InputPageUser10.aspx" />
+    <Content Include="InputPageUser2.aspx" />
+    <Content Include="InputPageUser3.aspx" />
+    <Content Include="InputPageUser4.aspx" />
+    <Content Include="InputPageUser5.aspx" />
+    <Content Include="InputPageUser6.aspx" />
+    <Content Include="InputPageUser7.aspx" />
+    <Content Include="InputPageUser8.aspx" />
+    <Content Include="InputPageUser9.aspx" />
+    <Content Include="LotMoveStep1.aspx" />
+    <Content Include="LotMoveStep2.aspx" />
+    <Content Include="LotMoveStep3.aspx" />
+    <Content Include="LotMoveStep4.aspx" />
+    <Content Include="OpenPdfHistoryMoveLot.aspx" />
+    <Content Include="OpenPdfWorkSheet.aspx" />
+    <Content Include="PageMonitoring.aspx" />
+    <Content Include="PageMonitoring_BM.aspx" />
+    <Content Include="PageMonitoring_GL.aspx" />
+    <Content Include="PageMonitoring_OP.aspx" />
+    <Content Include="PageMonitoring_PDMgr.aspx" />
+    <Content Include="PageMonitoring_QC.aspx" />
+    <Content Include="PageMonitoring_QYI.aspx" />
+    <Content Include="PortalPdfPage.aspx" />
+    <Content Include="OpenPdfHistorySheet.aspx" />
+    <Content Include="RequestLogin.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="UpdateTotalNG.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DBAccsess.cs" />
+    <Compile Include="Default_Test.aspx.cs">
+      <DependentUpon>Default_Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default_Test.aspx.designer.cs">
+      <DependentUpon>Default_Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalClass.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryAdvancePage.aspx.cs">
+      <DependentUpon>HistoryAdvancePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistoryAdvancePage.aspx.designer.cs">
+      <DependentUpon>HistoryAdvancePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryDailyPage.aspx.cs">
+      <DependentUpon>HistoryDailyPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistoryDailyPage.aspx.designer.cs">
+      <DependentUpon>HistoryDailyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryDataSheet.aspx.cs">
+      <DependentUpon>HistoryDataSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistoryDataSheet.aspx.designer.cs">
+      <DependentUpon>HistoryDataSheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser1.aspx.cs">
+      <DependentUpon>InputPageUser1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser1.aspx.designer.cs">
+      <DependentUpon>InputPageUser1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser10.aspx.cs">
+      <DependentUpon>InputPageUser10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser10.aspx.designer.cs">
+      <DependentUpon>InputPageUser10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser2.aspx.cs">
+      <DependentUpon>InputPageUser2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser2.aspx.designer.cs">
+      <DependentUpon>InputPageUser2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser3.aspx.cs">
+      <DependentUpon>InputPageUser3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser3.aspx.designer.cs">
+      <DependentUpon>InputPageUser3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser4.aspx.cs">
+      <DependentUpon>InputPageUser4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser4.aspx.designer.cs">
+      <DependentUpon>InputPageUser4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser5.aspx.cs">
+      <DependentUpon>InputPageUser5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser5.aspx.designer.cs">
+      <DependentUpon>InputPageUser5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser6.aspx.cs">
+      <DependentUpon>InputPageUser6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser6.aspx.designer.cs">
+      <DependentUpon>InputPageUser6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser7.aspx.cs">
+      <DependentUpon>InputPageUser7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser7.aspx.designer.cs">
+      <DependentUpon>InputPageUser7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser8.aspx.cs">
+      <DependentUpon>InputPageUser8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser8.aspx.designer.cs">
+      <DependentUpon>InputPageUser8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InputPageUser9.aspx.cs">
+      <DependentUpon>InputPageUser9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPageUser9.aspx.designer.cs">
+      <DependentUpon>InputPageUser9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LotMoveStep1.aspx.cs">
+      <DependentUpon>LotMoveStep1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LotMoveStep1.aspx.designer.cs">
+      <DependentUpon>LotMoveStep1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LotMoveStep2.aspx.cs">
+      <DependentUpon>LotMoveStep2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LotMoveStep2.aspx.designer.cs">
+      <DependentUpon>LotMoveStep2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LotMoveStep3.aspx.cs">
+      <DependentUpon>LotMoveStep3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LotMoveStep3.aspx.designer.cs">
+      <DependentUpon>LotMoveStep3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LotMoveStep4.aspx.cs">
+      <DependentUpon>LotMoveStep4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LotMoveStep4.aspx.designer.cs">
+      <DependentUpon>LotMoveStep4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpenPdfHistoryMoveLot.aspx.cs">
+      <DependentUpon>OpenPdfHistoryMoveLot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenPdfHistoryMoveLot.aspx.designer.cs">
+      <DependentUpon>OpenPdfHistoryMoveLot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpenPdfWorkSheet.aspx.cs">
+      <DependentUpon>OpenPdfWorkSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenPdfWorkSheet.aspx.designer.cs">
+      <DependentUpon>OpenPdfWorkSheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMonitoring.aspx.cs">
+      <DependentUpon>PageMonitoring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageMonitoring.aspx.designer.cs">
+      <DependentUpon>PageMonitoring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMonitoring_BM.aspx.cs">
+      <DependentUpon>PageMonitoring_BM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageMonitoring_BM.aspx.designer.cs">
+      <DependentUpon>PageMonitoring_BM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMonitoring_GL.aspx.cs">
+      <DependentUpon>PageMonitoring_GL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageMonitoring_GL.aspx.designer.cs">
+      <DependentUpon>PageMonitoring_GL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMonitoring_OP.aspx.cs">
+      <DependentUpon>PageMonitoring_OP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageMonitoring_OP.aspx.designer.cs">
+      <DependentUpon>PageMonitoring_OP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMonitoring_PDMgr.aspx.cs">
+      <DependentUpon>PageMonitoring_PDMgr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageMonitoring_PDMgr.aspx.designer.cs">
+      <DependentUpon>PageMonitoring_PDMgr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMonitoring_QC.aspx.cs">
+      <DependentUpon>PageMonitoring_QC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageMonitoring_QC.aspx.designer.cs">
+      <DependentUpon>PageMonitoring_QC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMonitoring_QYI.aspx.cs">
+      <DependentUpon>PageMonitoring_QYI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageMonitoring_QYI.aspx.designer.cs">
+      <DependentUpon>PageMonitoring_QYI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PortalPdfPage.aspx.cs">
+      <DependentUpon>PortalPdfPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PortalPdfPage.aspx.designer.cs">
+      <DependentUpon>PortalPdfPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpenPdfHistorySheet.aspx.cs">
+      <DependentUpon>OpenPdfHistorySheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenPdfHistorySheet.aspx.designer.cs">
+      <DependentUpon>OpenPdfHistorySheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RequestLogin.aspx.cs">
+      <DependentUpon>RequestLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestLogin.aspx.designer.cs">
+      <DependentUpon>RequestLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTotalNG.aspx.cs">
+      <DependentUpon>UpdateTotalNG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateTotalNG.aspx.designer.cs">
+      <DependentUpon>UpdateTotalNG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51665</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51685/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
