@@ -625,6 +625,20 @@ namespace LowYieldCheckSheet
                                 tbS8r8.Text = rowbm["ConchkPro"].ToString();
                             }
 
+                            if (rowbm["ChkLimitHiData"].ToString() != "")
+                            {
+                                tbS8r4c1.Text = rowbm["ChkLimitHiData"].ToString();
+                            }
+
+                            if (rowbm["ChkLimitLoData"].ToString() != "")
+                            {
+                                tbS8r5c1.Text = rowbm["ChkLimitLoData"].ToString();
+                            }
+
+                            if (rowbm["ChkTesterChChangeData"].ToString() != "")
+                            {
+                                tbS8r6c1.Text = rowbm["ChkTesterChChangeData"].ToString();
+                            }
                             //################################ STEP 9 ######################
                             if (!(string.IsNullOrEmpty(rowbm["BMUnitID"].ToString())))
                             {
@@ -649,10 +663,13 @@ namespace LowYieldCheckSheet
                     }
                     else
                     {
-                        tbS8r1c1.Text = row["TNo1"].ToString();
+                         tbS8r1c1.Text = row["TNo1"].ToString();
                         tbS8r2c1.Text = row["LimitLow1"].ToString();
                         tbS8r3c1.Text = row["LimitHigh1"].ToString();
                         tbS8r8.Text = row["ProgramName"].ToString();
+                        tbS8r4c1.Text = row["MassProductNG1"].ToString();
+                        tbS8r5c1.Text = row["GoodSample1"].ToString();
+                        tbS8r6c1.Text = row["TesterETC1"].ToString();
                     }
                     
 
@@ -674,19 +691,19 @@ namespace LowYieldCheckSheet
                     tbS8r3c4.Text = row["LimitHigh4"].ToString();
                     tbS8r3c5.Text = row["LimitHigh5"].ToString();
 
-                    tbS8r4c1.Text = row["MassProductNG1"].ToString();
+                    //tbS8r4c1.Text = row["MassProductNG1"].ToString();
                     tbS8r4c2.Text = row["MassProductNG2"].ToString();
                     tbS8r4c3.Text = row["MassProductNG3"].ToString();
                     tbS8r4c4.Text = row["MassProductNG4"].ToString();
                     tbS8r4c5.Text = row["MassProductNG5"].ToString();
 
-                    tbS8r5c1.Text = row["GoodSample1"].ToString();
+                    //tbS8r5c1.Text = row["GoodSample1"].ToString();
                     tbS8r5c2.Text = row["GoodSample2"].ToString();
                     tbS8r5c3.Text = row["GoodSample3"].ToString();
                     tbS8r5c4.Text = row["GoodSample4"].ToString();
                     tbS8r5c5.Text = row["GoodSample5"].ToString();
 
-                    tbS8r6c1.Text = row["TesterETC1"].ToString();
+                    //tbS8r6c1.Text = row["TesterETC1"].ToString();
                     tbS8r6c2.Text = row["TesterETC2"].ToString();
                     tbS8r6c3.Text = row["TesterETC3"].ToString();
                     tbS8r6c4.Text = row["TesterETC4"].ToString();
@@ -948,15 +965,22 @@ namespace LowYieldCheckSheet
             }
             else if (gc.Edit == "FALSE")
             {
-                if (gc.Cause == "TAKEBACK" || gc.Cause == "ICBURN")
+                if (bmid != "")
                 {
-                    gc.Status = "4";
-                    //comment 25-02-2021 --> gc.Status = "5B";
+                    gc.Status = "3";
                 }
                 else
                 {
-                    //Status 
-                    gc.Status = "7";
+                    if (gc.Cause == "TAKEBACK" || gc.Cause == "ICBURN")
+                    {
+                        gc.Status = "4";
+                        //comment 25-02-2021 --> gc.Status = "5B";
+                    }
+                    else
+                    {
+                        //Status 
+                        gc.Status = "7";
+                    }
                 }
 
                

@@ -106,7 +106,7 @@ namespace LowYieldCheckSheet
         public DataTable CheckDataBM(string bmid)
         {
             var tblbm = new DataTable();
-            string strSQLbm = " SELECT NGDescription,ConchkPro,BMUnitID,ChkLimitHi,ChkLimitLo FROM [DBx].[dbo].[BMTEDetail],[DBx].[dbo].[BMMaintenance] WHERE ID=BM_ID  AND ID = @bmid";
+            string strSQLbm = " SELECT NGDescription,ConchkPro,BMUnitID,ChkLimitHi,ChkLimitLo,ChkLimitHiData,ChkLimitLoData,ChkTesterChChangeData FROM [DBx].[dbo].[BMTEDetail],[DBx].[dbo].[BMMaintenance] WHERE ID=BM_ID  AND ID = @bmid";
             using (SqlConnection con = new SqlConnection(Properties.Settings.Default.DBxConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(strSQLbm, con))
